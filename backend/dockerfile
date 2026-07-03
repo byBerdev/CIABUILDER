@@ -1,0 +1,12 @@
+FROM devkitpro/devkitarm
+
+RUN apt-get update && apt-get install -y \
+    make \
+    git \
+    bannertool \
+    makerom
+
+WORKDIR /app
+COPY . .
+
+CMD ["node", "backend/server.js"]
